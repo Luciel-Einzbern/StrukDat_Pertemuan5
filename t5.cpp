@@ -15,7 +15,7 @@ void menaraHanoi(Stack &menara, char namaMenara) {
 }
 
 void push(Stack &menara, int batu) {
-    if (menara.top < (jumlahBatu - 1)) { 
+    if (menara.top < jumlahBatu - 1) { 
         menara.top++;
         menara.batu[menara.top] = batu;
     }
@@ -75,9 +75,10 @@ int main() {
     pindahkanHanoi(jumlahBatu, menaraA, menaraB, menaraC, langkah);
     cout << "-----------------------------------------\n";
     cout << "\tBatu di Menara C:\n";
-    for (int i = (jumlahBatu - 1); i >= 0; i--) {
+    for (int i = menaraC.top; i >= 0; i--) {
         cout << "\t\t" << menaraC.batu[i] << '\n';
     }
-
+    cout << " ";
+    
     return 0;
 }
