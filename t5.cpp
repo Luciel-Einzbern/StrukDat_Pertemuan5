@@ -49,6 +49,14 @@ void pindahkanHanoi(int jumlahBatu, Stack &A, Stack &B, Stack &C, int &langkah) 
     pindahkanHanoi(jumlahBatu - 1, B, A, C, langkah);
 }
 
+void tampilMenara(Stack &menara) {
+    char namaMenara = menara.nama;
+    cout << "\tBatu di Menara "<< namaMenara << ":\n";
+    for (int i = menara.top; i >= 0; i--) {
+        cout << "\t\t" << menara.batu[i] << '\n';
+    }
+}
+
 int main() {
     int batu[jumlahBatu] = {10, 20, 30};
 
@@ -63,10 +71,7 @@ int main() {
 
     cout << "\n======= Penyelesaian Menara Hanoi =======\n";
     cout << "Diketahui Menara A memiliki " << jumlahBatu << " batu.\n\n";
-    cout << "\tBatu di Menara A:\n";
-    for (int i = 0; i < jumlahBatu; i++) {
-        cout << "\t\t" << batu[i] << '\n';
-    }
+    tampilMenara(menaraA);
     cout << "\nTujuan: Pindahkan semua batu ke Menara C.\n";
     cout << "-----------------------------------------\n";
 
@@ -74,10 +79,7 @@ int main() {
     int langkah = 1;
     pindahkanHanoi(jumlahBatu, menaraA, menaraB, menaraC, langkah);
     cout << "-----------------------------------------\n";
-    cout << "\tBatu di Menara C:\n";
-    for (int i = menaraC.top; i >= 0; i--) {
-        cout << "\t\t" << menaraC.batu[i] << '\n';
-    }
+    tampilMenara(menaraC);
     cout << " ";
     
     return 0;
